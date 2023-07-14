@@ -95,8 +95,11 @@ class WeatherAppScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 AdditionalInfoItem(),
+                AdditionalInfoItem(),
+                AdditionalInfoItem()
               ],
             ),
           ],

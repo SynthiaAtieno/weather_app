@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class WeatherAppScreen extends StatelessWidget {
@@ -23,29 +25,45 @@ class WeatherAppScreen extends StatelessWidget {
           )
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             SizedBox(
               width: double.infinity,
               child: Card(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "300.6°F",
-                        style: TextStyle(fontSize: 32),
-                      ),
-                      Icon(
-                        Icons.cloud,
-                        size: 80,
-                      ),
-                      Text(
-                        "Rain",
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ]),
+                color: Colors.black12,
+                elevation: 30,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "300.6°F",
+                            style: TextStyle(fontSize: 32),
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Icon(
+                            Icons.cloud,
+                            size: 80,
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Text(
+                            "Rain",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ]),
+                  ),
+                ),
               ),
             ),
           ],

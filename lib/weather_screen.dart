@@ -97,9 +97,21 @@ class WeatherAppScreen extends StatelessWidget {
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                AdditionalInfoItem(),
-                AdditionalInfoItem(),
-                AdditionalInfoItem()
+                AdditionalInfoItem(
+                  icon: Icons.water_drop,
+                  label: "Humidity",
+                  valuetxt: 91,
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.water_drop,
+                  label: "Wind Speed",
+                  valuetxt: 7.127,
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.water_drop,
+                  label: "Pressure",
+                  valuetxt: 1000,
+                )
               ],
             ),
           ],

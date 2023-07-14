@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'hourly_forecast_item.dart';
+import 'additional_info_item.dart';
 
 class WeatherAppScreen extends StatelessWidget {
   const WeatherAppScreen({super.key});
@@ -101,25 +102,6 @@ class WeatherAppScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class AdditionalInfoItem extends StatelessWidget {
-  const AdditionalInfoItem({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Icon(Icons.water_drop, size: 32),
-        SizedBox(height: 16),
-        Text("Humidity"),
-        SizedBox(height: 16),
-        Text("94")
-      ],
     );
   }
 }

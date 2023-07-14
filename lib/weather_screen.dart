@@ -28,43 +28,82 @@ class WeatherAppScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               width: double.infinity,
               child: Card(
-                color: Colors.black12,
-                elevation: 30,
+                elevation: 16,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "300.6°F",
-                            style: TextStyle(fontSize: 32),
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          Icon(
-                            Icons.cloud,
-                            size: 80,
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          Text(
-                            "Rain",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ]),
+                    borderRadius: BorderRadius.circular(16)),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                    child: const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(children: [
+                        Text(
+                          "300.6°F",
+                          style: TextStyle(fontSize: 32),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Icon(
+                          Icons.cloud,
+                          size: 60,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Rain",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ]),
+                    ),
                   ),
                 ),
               ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              "Weather Forecast",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 12),
+            const Row(children: [
+              Card(
+                elevation: 16,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        "15:40",
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      Icon(
+                        Icons.cloud,
+                        size: 44,
+                      ),
+                      Text(
+                        "300.12",
+                        style: TextStyle(fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ]),
+            Placeholder(
+              fallbackHeight: 100,
+            ),
+            const SizedBox(height: 20),
+            Placeholder(
+              fallbackHeight: 100,
             ),
           ],
         ),

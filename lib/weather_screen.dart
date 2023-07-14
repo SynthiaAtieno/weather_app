@@ -11,7 +11,7 @@ class WeatherAppScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "Weather App",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );

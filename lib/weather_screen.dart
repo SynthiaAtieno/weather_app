@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'hourly_forecast_item.dart';
 
 class WeatherAppScreen extends StatelessWidget {
   const WeatherAppScreen({super.key});
@@ -94,36 +95,7 @@ class WeatherAppScreen extends StatelessWidget {
             ),
             const Row(
               children: [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Icon(Icons.water_drop),
-                      Text("Humidity"),
-                      Text("94")
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Icon(Icons.air_outlined),
-                      Text("Wind Speed"),
-                      Text("94")
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Icon(Icons.beach_access),
-                      Text("Pressure"),
-                      Text("94")
-                    ],
-                  ),
-                ),
+                AdditionalInfoItem(),
               ],
             ),
           ],
@@ -133,38 +105,21 @@ class WeatherAppScreen extends StatelessWidget {
   }
 }
 
-class HourlyForecast extends StatelessWidget {
-  const HourlyForecast({super.key});
+class AdditionalInfoItem extends StatelessWidget {
+  const AdditionalInfoItem({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 16,
-      child: Container(
-        width: 100,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: const Padding(
-          padding: EdgeInsets.all(6.0),
-          child: Column(
-            children: [
-              Text(
-                "15:40",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
-              Icon(
-                Icons.cloud,
-                size: 44,
-              ),
-              Text(
-                "300.12",
-                style: TextStyle(fontWeight: FontWeight.normal),
-              ),
-            ],
-          ),
-        ),
-      ),
+    return Column(
+      children: [
+        Icon(Icons.water_drop, size: 32),
+        SizedBox(height: 16),
+        Text("Humidity"),
+        SizedBox(height: 16),
+        Text("94")
+      ],
     );
   }
 }

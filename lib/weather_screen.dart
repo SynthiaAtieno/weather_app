@@ -5,6 +5,15 @@ class WeatherAppScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        title: const Text(
+          "Weather App",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
   }
 }

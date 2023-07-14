@@ -73,39 +73,96 @@ class WeatherAppScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
-            const Row(children: [
-              Card(
-                elevation: 16,
-                child: Padding(
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(children: [
+                HourlyForecast(),
+                HourlyForecast(),
+                HourlyForecast(),
+                HourlyForecast(),
+                HourlyForecast(),
+                HourlyForecast(),
+                HourlyForecast(),
+                HourlyForecast(),
+                HourlyForecast(),
+              ]),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              "Additional Information",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const Row(
+              children: [
+                Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      Text(
-                        "15:40",
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                      Icon(
-                        Icons.cloud,
-                        size: 44,
-                      ),
-                      Text(
-                        "300.12",
-                        style: TextStyle(fontWeight: FontWeight.normal),
-                      ),
+                      Icon(Icons.water_drop),
+                      Text("Humidity"),
+                      Text("94")
                     ],
                   ),
                 ),
-              ),
-            ]),
-            Placeholder(
-              fallbackHeight: 100,
-            ),
-            const SizedBox(height: 20),
-            Placeholder(
-              fallbackHeight: 100,
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Icon(Icons.air_outlined),
+                      Text("Wind Speed"),
+                      Text("94")
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Icon(Icons.beach_access),
+                      Text("Pressure"),
+                      Text("94")
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class HourlyForecast extends StatelessWidget {
+  const HourlyForecast({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 16,
+      child: Container(
+        width: 100,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: const Padding(
+          padding: EdgeInsets.all(6.0),
+          child: Column(
+            children: [
+              Text(
+                "15:40",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              Icon(
+                Icons.cloud,
+                size: 44,
+              ),
+              Text(
+                "300.12",
+                style: TextStyle(fontWeight: FontWeight.normal),
+              ),
+            ],
+          ),
         ),
       ),
     );

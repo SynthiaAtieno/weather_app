@@ -13,6 +13,14 @@ class WeatherAppScreen extends StatelessWidget {
           "Weather App",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          GestureDetector(
+            child: const Icon(
+              Icons.refresh,
+              color: Colors.white,
+            ),
+          )
+        ],
       ),
     );
   }

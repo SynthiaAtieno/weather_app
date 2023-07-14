@@ -78,15 +78,11 @@ class WeatherAppScreen extends StatelessWidget {
             const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(children: [
-                HourlyForecast(),
-                HourlyForecast(),
-                HourlyForecast(),
-                HourlyForecast(),
-                HourlyForecast(),
-                HourlyForecast(),
-                HourlyForecast(),
-                HourlyForecast(),
-                HourlyForecast(),
+                HourlyForecast(
+                  iconData: Icons.cloud,
+                  time: "16.98",
+                  value: "56.0",
+                ),
               ]),
             ),
             const SizedBox(height: 20),

@@ -15,7 +15,7 @@ class WeatherAppScreen extends StatefulWidget {
 }
 
 class _WeatherAppScreenState extends State<WeatherAppScreen> {
-  Future getCurrentWeather() async {
+  Future<Map<String, dynamic>> getCurrentWeather() async {
     try {
       String cityName = "Kenya";
       final result = await http.get(
@@ -24,13 +24,11 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
       );
 
       final data = jsonDecode(result.body);
-      print(data);
 
       if (data['cod'] != "200") {
         throw 'Unexpected error occurred';
       }
       return data;
-      //data['list'][0]['main']['temp'];
     } catch (e) {
       //String errorMessage = 'An error occurred: $e';
       throw e.toString();
@@ -60,8 +58,8 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
       body: FutureBuilder(
         future: getCurrentWeather(),
         builder: (context, AsyncSnapshot snapshot) {
-          print(snapshot);
-          print(snapshot.runtimeType);
+          // print(snapshot);
+          // print(snapshot.runtimeType);
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator.adaptive());
           }
@@ -74,6 +72,8 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
             );
           }
 
+          final data = snapshot.data!;
+          final temperature = data['list'][0]['main']['temp'];
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -93,7 +93,7 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
                           padding: const EdgeInsets.all(16.0),
                           child: Column(children: [
                             Text(
-                              "200 K",
+                              "$temperature K",
                               style: const TextStyle(fontSize: 32),
                             ),
                             const SizedBox(

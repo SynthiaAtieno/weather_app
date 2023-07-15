@@ -4,7 +4,11 @@ class HourlyForecast extends StatelessWidget {
   final String time;
   final String value;
   final IconData iconData;
-  const HourlyForecast({ required this.iconData, required this.time, required this.value,super.key});
+  const HourlyForecast(
+      {required this.iconData,
+      required this.time,
+      required this.value,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +19,16 @@ class HourlyForecast extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
         ),
-        child:  Padding(
+        child: Padding(
           padding: const EdgeInsets.all(6.0),
           child: Column(
             children: [
               Text(
-               time,
-                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                time,
+                style:
+                    const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               Icon(
                 iconData,

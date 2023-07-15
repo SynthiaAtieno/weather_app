@@ -24,13 +24,15 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
       );
 
       final data = jsonDecode(result.body);
+      print(data);
 
-      if (int.parse(data['cod']) != 200) {
+      if (data['cod'] != "200") {
         throw 'Unexpected error occurred';
       }
       return data;
       //data['list'][0]['main']['temp'];
     } catch (e) {
+      //String errorMessage = 'An error occurred: $e';
       throw e.toString();
     }
   }
@@ -58,8 +60,8 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
       body: FutureBuilder(
         future: getCurrentWeather(),
         builder: (context, AsyncSnapshot snapshot) {
-          // print(snapshot);
-          // print(snapshot.runtimeType);
+          print(snapshot);
+          print(snapshot.runtimeType);
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator.adaptive());
           }
@@ -141,17 +143,17 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
                     AdditionalInfoItem(
                       icon: Icons.water_drop,
                       label: "Humidity",
-                      valuetxt: 91,
+                      valuetxt: "91",
                     ),
                     AdditionalInfoItem(
                       icon: Icons.water_drop,
                       label: "Wind Speed",
-                      valuetxt: 7.127,
+                      valuetxt: "7.127",
                     ),
                     AdditionalInfoItem(
                       icon: Icons.water_drop,
                       label: "Pressure",
-                      valuetxt: 1000,
+                      valuetxt: "1000",
                     )
                   ],
                 ),

@@ -45,11 +45,13 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
         centerTitle: true,
         title: const Text(
           "Weather App",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              setState(() {});
+            },
             icon: const Icon(
               Icons.refresh,
               color: Colors.white,
@@ -161,7 +163,7 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
                                       hourlyData['weather'][0]['main'] == 'Rain'
                                   ? Icons.cloud
                                   : Icons.sunny,
-                              time: DateFormat.Hm().format(time),
+                              time: DateFormat.j().format(time),
                               value: '$temperature');
                         })),
                   ),

@@ -58,8 +58,8 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
       body: FutureBuilder(
         future: getCurrentWeather(),
         builder: (context, AsyncSnapshot snapshot) {
-          print(snapshot);
-          print(snapshot.runtimeType);
+          // print(snapshot);
+          // print(snapshot.runtimeType);
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator.adaptive());
           }

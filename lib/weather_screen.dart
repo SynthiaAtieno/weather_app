@@ -2,10 +2,12 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/key.dart';
 import 'hourly_forecast_item.dart';
 import 'additional_info_item.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class WeatherAppScreen extends StatefulWidget {
   const WeatherAppScreen({super.key});
@@ -61,7 +63,10 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
           // print(snapshot);
           // print(snapshot.runtimeType);
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator.adaptive());
+            return const Center(
+                child: SpinKitWave(
+              color: Colors.amber,
+            ));
           }
           if (snapshot.hasError) {
             return Center(
@@ -148,14 +153,15 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
                         itemBuilder: ((context, index) {
                           final hourlyData = data['list'][index + 1];
                           final temperature = hourlyData['main']['temp'];
-                          final time = hourlyData['dt'];
+                          final time = DateTime.parse(hourlyData['dt_txt']);
+
                           return HourlyForecast(
                               iconData: hourlyData['weather'][0]['main'] ==
                                           'Clouds' ||
                                       hourlyData['weather'][0]['main'] == 'Rain'
                                   ? Icons.cloud
                                   : Icons.sunny,
-                              time: '$time',
+                              time: DateFormat.Hm().format(time),
                               value: '$temperature');
                         })),
                   ),

@@ -57,7 +57,7 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
       ),
       body: FutureBuilder(
         future: getCurrentWeather(),
-        builder: (context, snapshot) {
+        builder: (context, AsyncSnapshot snapshot) {
           print(snapshot);
           print(snapshot.runtimeType);
           if (snapshot.connectionState == ConnectionState.waiting) {

@@ -74,7 +74,10 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
             return Center(
               child: Text(
                 snapshot.error.toString(),
-                style: const TextStyle(color: Colors.red),
+                style: const TextStyle(
+                    color: Colors.red,
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal),
               ),
             );
           }
@@ -123,7 +126,9 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
                               ),
                               Text(
                                 currntSky,
-                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+                                style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal),
                               ),
                             ]),
                           ),

@@ -123,7 +123,7 @@ class _WeatherAppScreenState extends State<WeatherAppScreen> {
                               ),
                               Text(
                                 currntSky,
-                                style: const TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
                               ),
                             ]),
                           ),
